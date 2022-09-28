@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vh;
+  overflow: hidden;
+}
+
+canvas {
+  cursor: crosshair;
+}
+
+
+.color-button{
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
