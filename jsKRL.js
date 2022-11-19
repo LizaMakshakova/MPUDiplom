@@ -12,7 +12,24 @@ range.addEventListener('input', function () {
 canvas.addEventListener ("click", function (event) {
 	pX.push( event.offsetX );
 	pY.push( event.offsetY );
+	Draw();
 })
+
+function Draw(){
+	if (state==1){
+		DrawLine()
+	}
+	if (state==2){
+		DrawCircle()
+	}
+}
+
+function SetLine() {
+	state=1;
+}
+function SetCircle() {
+	state=2;
+}
 
 function DrawLine(){
 	if ( pX.length == 2 ){		
