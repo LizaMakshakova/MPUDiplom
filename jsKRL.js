@@ -50,7 +50,7 @@ function DrawLine(){
 	}
 }	
 
-function two(){
+function DrawCircle(){
 	//рисуем круг	
 	if ( pX.length == 2 ){
    		h = pX[1] - pX[0];
