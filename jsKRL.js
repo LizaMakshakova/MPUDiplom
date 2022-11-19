@@ -74,10 +74,22 @@ function DrawCircle(){
    		t = pY[1] - pY[0];
    		a = Math.pow(h, 2);
    		b = Math.pow(t, 2);
-   		R = Math.sqrt(a + b)
+   		R1 = Math.sqrt(a + b);
+
    		ctx.beginPath();
-    	ctx.arc(pX[0], pY[0], R,0,Math.PI*2, true);
+    	ctx.arc(pX[0], pY[0], R1,0,Math.PI*2, true);
    	 	ctx.stroke();
+
+   	 	R2 = R1+d/2;
+   		ctx.beginPath();
+    	ctx.arc(pX[0], pY[0], R2,0,Math.PI*2, true);
+   	 	ctx.stroke();
+   	 
+   	 	R3 = R1-d/2;
+   		ctx.beginPath();
+    	ctx.arc(pX[0], pY[0], R3,0,Math.PI*2, true);
+   	 	ctx.stroke();
+   	 	
    	 	pX = [];
     	pY = [];
 	}					
