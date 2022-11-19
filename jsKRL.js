@@ -14,7 +14,7 @@ canvas.addEventListener ("click", function (event) {
 	pY.push( event.offsetY );
 })
 
-function one(){
+function DrawLine(){
 	if ( pX.length == 2 ){		
 		nX=pY[0]-pY[1];
 		nY=pX[1]-pX[0];
