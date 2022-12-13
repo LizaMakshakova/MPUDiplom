@@ -1,12 +1,14 @@
 #c1 {
-	width: 600px;    				//размеры
+	width: 600px;    				/*размеры*/
 	height: ;: 500px: ;
 	border: 3px solid black ;
-	margin: 40px;					//отступы
+	margin: 40px;					/*отступы*/
+	background-color: #ffffff;
 }
 
 html {
- 	//min-height: 100%;			//полоса прокрутк,всегда показывается
+ 	/*min-height: 100%;			/*полоса прокрутк,всегда показывается*/
+ 	background-color: #151a1e;
 }
 
 .vid1 {
@@ -17,4 +19,58 @@ html {
 }
 .vid3 {
 	float: right;
+}
+
+.but1, .but2, .but3, .but4 {
+	border: 1px solid;
+	background-color: transparent;
+	text-transform: uppercase;
+	font-size: 16px;
+	padding: 10px 15px;
+	transition: 0.2s;
+	margin-right: 17px;
+	
+}
+.but1 {
+	color: #4cc9f0;
+}
+
+.but1:hover {
+	background-color: #4cc9f0;
+	color: #fff;
+	border: 1px solid #4cc9f0;
+	box-shadow: 10px 10px 100px 6px #4cc9f0 ;
+}
+
+.but2 {
+	color: #f038ff;
+}	
+
+.but2:hover {
+	background-color: #f038ff;
+	color: #fff;
+	border: 1px solid #f038ff;
+	box-shadow: 10px 10px 100px 6px #f038ff;
+}
+
+.but3 {
+	color: #b9e769;
+}	
+
+.but3:hover {
+	background-color: #b9e769;
+	color: #fff;
+	border: 1px solid #b9e769;
+	box-shadow: 10px 10px 100px 6px #b9e769;
+}
+
+.but4 {
+	color: #ff7744;
+}	
+
+.but4:hover {
+	background-color: #ff7744;
+	color: #fff;
+	border: 1px solid #ff7744;
+	box-shadow: 10px 10px 100px 6px #ff7744;
 }

@@ -4,6 +4,7 @@ var range = document.querySelector('.slider');
 var d=50;
 var pX = [];
 var pY = [];
+var radius = document.getElementById('myRange').value;
 
 range.addEventListener('input', function () {
     d=range.value;
@@ -22,6 +23,9 @@ function Draw(){
 	if (state==2){
 		DrawCircle()
 	}
+	if (state==3){
+		DrawLineOne()
+	}
 }
 
 function SetLine() {
@@ -29,6 +33,9 @@ function SetLine() {
 }
 function SetCircle() {
 	state=2;
+}
+function SetLineOne() {
+	state=3;
 }
 
 function DrawLine(){
@@ -80,12 +87,12 @@ function DrawCircle(){
     	ctx.arc(pX[0], pY[0], R1,0,Math.PI*2, true);
    	 	ctx.stroke();
 
-   	 	R2 = R1+d/2;
+   	 	R2 = R1-d/2;
    		ctx.beginPath();
     	ctx.arc(pX[0], pY[0], R2,0,Math.PI*2, true);
    	 	ctx.stroke();
    	 
-   	 	R3 = R1-d/2;
+   	 	R3 = R1+d/2;
    		ctx.beginPath();
     	ctx.arc(pX[0], pY[0], R3,0,Math.PI*2, true);
    	 	ctx.stroke();
@@ -95,7 +102,21 @@ function DrawCircle(){
 	}					
 }
 
-let button = document.querySelector('.but3');
-button.onclick =  function RasA() {
+function DrawLineOne() {
+	if ( pX.length == 2 ){
+		
+		ctx.beginPath()
+		ctx.moveTo(pX[0], pY[0]);   	
+		ctx.lineTo(pX[1], pY[1]);
+		ctx.stroke();
+
+		pX = [];
+    	pY = [];
+
+	}		
+}
+
+let button = document.querySelector('.but4');
+button.onclick =  function RasA(){
 ctx.clearRect(0,0,600,500);
 }			
