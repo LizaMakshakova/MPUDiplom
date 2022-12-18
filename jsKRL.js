@@ -15,18 +15,6 @@ canvas.addEventListener ("click", function (event) {
 	Draw();
 })
 
-function Draw(){
-	if (state==1){
-		DrawLineSegment() 
-	}
-	if (state==2){
-		DrawCircle()
-	}
-	if (state==3){
-		DrawLineSegmentSet()
-	}   
-}
-
 function SetLineSegment() { 
 	state=1;
 }
@@ -37,13 +25,50 @@ function SetLineSegmentSet() {
 	state=3;
 }
 
+function Draw(){
+	if (state==1){
+		DrawLineSegment() 	
+	}
+	if (state==2){
+		DrawCircle()
+	}
+	if (state==3){
+		DrawLineSegmentSet()
+	}   
+}
+
 function ToNull() { 
 	pX = [];
     pY = [];
 }
 
+function ToShift() {
+	pX.shift() 
+	pY.shift()
+}
+
 function DrawLineSegment(){
-	if ( pX.length == 2 ){		
+	if ( pX.length == 2 ){
+		CalculationLineSegment()
+		_DrawLineSegment() 
+	}
+}	
+
+function DrawCircle(){	
+	if ( pX.length == 2 ){
+		CalculationCircle()
+   		_DrawCircle(); 
+	}					
+}
+
+function DrawLineSegmentSet(){
+	if ( pX.length == 2 ){
+		CalculationLineSegmentSet()	
+		_DrawLineSegmentSet() 
+	}	
+}	
+
+function CalculationLineSegment() { 	
 		nX=pY[0]-pY[1];
 		nY=pX[1]-pX[0];
 		l = Math.sqrt(nX*nX+nY*nY);
@@ -57,13 +82,9 @@ function DrawLineSegment(){
 		y5 = pY[0] + nY *(-d); 
 		x6 = pX[1] + nX *(-d);
 		y6 = pY[1] + nY *(-d);
+}
 
-		_DrawLineSegment() 
-	}
-}	
-
-function DrawCircle(){	
-	if ( pX.length == 2 ){
+function CalculationCircle() {
    		h = pX[1] - pX[0];
    		t = pY[1] - pY[0];
    		a = Math.pow(h, 2);
@@ -71,13 +92,9 @@ function DrawCircle(){
    		R1 = Math.sqrt(a + b);
 		R2 = R1-d/2;
 		R3 = R1+d/2;
-
-   		_DrawCircle(); // _DrawCircle
-	}					
 }
 
-function DrawLineSegmentSet(){
-	if ( pX.length == 2 ){		
+function CalculationLineSegmentSet(){		
 		nX=pY[0]-pY[1];
 		nY=pX[1]-pX[0];
 		l = Math.sqrt(nX*nX+nY*nY);
@@ -90,11 +107,8 @@ function DrawLineSegmentSet(){
 		x5 = pX[0] + nX *(-d);
 		y5 = pY[0] + nY *(-d); 
 		x6 = pX[1] + nX *(-d);
-		y6 = pY[1] + nY *(-d);
-
-		_DrawLineSegmentSet() // Rename!!!
-	}
-}	
+		y6 = pY[1] + nY *(-d);	
+}
 
 function _DrawLineSegment() {
 	ctx.beginPath()
@@ -137,21 +151,13 @@ function _DrawLineSegmentSet() {
 	ctx.lineTo(pX[1], pY[1]);
 	ctx.stroke();
 
-	// ctx.beginPath()
-	// ctx.moveTo(Math.floor(x3), Math.floor(y3));   	
-	// ctx.lineTo(Math.floor(x4), Math.floor(y4));
-	// ctx.stroke();
-
-	// ctx.beginPath()
-	// ctx.moveTo(Math.floor(x5), Math.floor(y5));   	
-	// ctx.lineTo(Math.floor(x6), Math.floor(y6));
-	// ctx.stroke();
-
-	pX.shift() 
-	pY.shift()    ; // Убрать из массива тоьлко первую точку
+	ToShift()    ; // Убрать из массива тоьлко первую точку
 }
 
 let button = document.querySelector('.but4');
 button.onclick =  function RasA(){ // Переименовать
 ctx.clearRect(0,0,600,500);
 }			
+
+
+//работать над именами ф-ий, разбивать на простые ф-ии, линии сделать толще, 
